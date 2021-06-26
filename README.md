@@ -33,7 +33,7 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
-
+https://vish-opatha.github.io/password-generator/
 ## Mock-Up
 
 The following image shows the web application's appearance and functionality:

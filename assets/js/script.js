@@ -103,23 +103,13 @@ remCharacters=remCharacters+1;
 var actualRemain=pwLength-remCharacters;
 var innerK, outerK;
  
-// console.log(passWord);
-// console.log("Remaining characters :"+(pwLength-remCharacters));
-// console.log(multicombination);
-
-// console.log("number array length: "+numberList.length);
-
 j=0;
 for(i=0;i<actualRemain;i++)
 {
   innerK=Math.floor(Math.random() * multicombination.length);
   var lengthsub=multicombination[innerK];
   outerK=Math.floor(Math.random() * lengthsub.length);
-  passWord=passWord+(multicombination[innerK][outerK]);
-  // console.log(multicombination.length);
-  // console.log(passWord);
-  // outerK=math.floor(multicombination)
-  
+  passWord=passWord+(multicombination[innerK][outerK]); 
 }
 return passWord;
 }
