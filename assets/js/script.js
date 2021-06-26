@@ -4,24 +4,18 @@ var pwCombination = [0,0,0,0]; //numbers,uppercase,lowercase,special characters
 var numberList=["0","1","2","3","4","5","6","7","8","9"];
 var capLetters=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var smallLetters=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var specialChar=["!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","`"];
-var listOfChars; 
-var pwArrayIndex=0;
-
-var count=0;
-var pwArray= [];
-var outerA;
-var innerA;
-var letterss="";
-
+var specialChar=["`","~","!","@","#","$","%","^","&","*","(",")","-","_","=","+","[","]","\\","{","}","|",";","\'",":","\"","\,",".","/","<",">","?"];
+var listOfChars; // This changes to numberList/capLetters/smallLetters/specialChar
+var pwArray= []; // This is an array comprises of other arrays from above, based on user input
+var pwArrayIndex=0; // This is the index for the above pwArray
+var count; // This counts the number of times if statement in generateFirstChars fn runs
 var generateBtn = document.querySelector('#generate');
 
-
-
-// Arrays for capital letters and special characters
-
+// Main function to generate the password, this has multiple functions inside
 function generatePassword()
 {
+    passWord=""; pwCombination=[0,0,0,0]; pwArray=[]; count=0; pwArrayIndex=0;
+    
     pwLength=window.prompt("Please enter the desired length of your password?");
     // Validate the length of the password
     while(pwLength<8 || pwLength>128)
@@ -32,7 +26,7 @@ function generatePassword()
 
     // Get user input for numbers, uppercase, lowercase and special characters
     getUserInput();
-    // Validate if the user select one option out of four
+    // Validate if the user selects atlease one option out of four
     while(!(incLowerCase || incUpperCase || incNumbers || incSpecialChar))
     {
         window.alert("You need to select at lease one from numbers\n uppercase, lowercase and special characters.");
@@ -46,15 +40,25 @@ function generatePassword()
     updateCombination(incLowerCase,2,smallLetters);
     updateCombination(incSpecialChar,3,specialChar);
 
-    // Generate one character from each category according to the given user input
-    generateFirstChars(0,numberList);
-    generateFirstChars(1,capLetters);
-    generateFirstChars(2,smallLetters);
-    generateFirstChars(3,specialChar);
+    // Generate one character from each category to satisfy the user input - validation 
+    generateFirstChars(0,numberList); console.log(passWord);
+    generateFirstChars(1,capLetters); console.log(passWord);
+    generateFirstChars(2,smallLetters); console.log(passWord);
+    generateFirstChars(3,specialChar); console.log(passWord);
 
-    // Generate
-    generateRemChars();
-
+    // Generate the remaining number of characters randomly from random arrays
+    var remCharacters=pwLength-count; //actual number of times the below for loop would run
+    var rIndex1, rIndex2, randomArray;
+   
+    for(i=0;i<remCharacters;i++)
+    {
+      rIndex1=Math.floor(Math.random() * pwArray.length); //Pickup any array randomly according to the user input
+      randomArray=pwArray[rIndex1];
+      rIndex2= Math.floor(Math.random() * randomArray.length); //Pickup random index for the randomly selected above array
+        
+      passWord=passWord+(pwArray[rIndex1][rIndex2]); 
+    }
+    
   return passWord;
 }
 
@@ -90,23 +94,6 @@ function generateFirstChars(aIndex,refArray)
     var firstChar=refArray[index];
     passWord= passWord+""+firstChar+"";
     count=count+1; 
-  }
-}
-
-/*This function is used to randomly generate the remaining characters for the password after generating first characters
-  according to the user input */
-function generateRemChars()
-{
-  var remCharacters=pwLength-count; //actual number of times the for loop would run
-  var rIndex1, rIndex2, randomArray;
- 
-  for(i=0;i<remCharacters;i++)
-  {
-    rIndex1=Math.floor(Math.random() * pwArray.length); //Pickup any array randomly according to the user input
-    randomArray=pwArray[rIndex1];
-    rIndex2= Math.floor(Math.random() * randomArray.length); //Pickup random index for the randomly selected above array
-      
-    passWord=passWord+(pwArray[rIndex1][rIndex2]); 
   }
 }
 
