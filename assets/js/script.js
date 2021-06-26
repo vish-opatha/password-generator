@@ -22,11 +22,13 @@ var outerA;
 var innerA;
 var letterss="";
 
+var generateBtn = document.querySelector('#generate');
+
 
 
 // Arrays for capital letters and special characters
 
-
+function generatePassword(){
 pwLength=window.prompt("Please enter the desired length of your password?");
 
 while(pwLength<8 || pwLength>128)
@@ -115,73 +117,12 @@ for(i=0;i<actualRemain;i++)
   outerK=Math.floor(Math.random() * lengthsub.length);
   passWord=passWord+(multicombination[innerK][outerK]);
   // console.log(multicombination.length);
-  console.log(passWord);
+  // console.log(passWord);
   // outerK=math.floor(multicombination)
   
 }
-
-// // genPassWordN(pwLength)
-// // genPassWordC(pwLength)
-// // genPassWordL(pwLength)
-// // genPassWordS(pwLength);
-
-// // //Generate random numbers from 0 to 10
-// // function genPassWordN(pwLength)
-// // {
-// //   for(var i=0;i<pwLength;i++)
-// //   {
-// //       var num=Math.floor(Math.random() * 10);
-      
-// //       passWord= passWord+""+num+"";
-// //   }
-  
-// // }
-
-// function genPassWordC(pwLength)
-// {
-//   for(var i=0;i<pwLength;i++)
-//   {
-//       var num=Math.floor(Math.random() * 26);
-//       var capL=capLetters[num];
-//       passWord= passWord+""+capL+"";
-//   }
-  
-// }
-
-// // function genPassWordL(pwLength)
-// // {
-// //   for(var i=0;i<pwLength;i++)
-// //   {
-// //       var num=Math.floor(Math.random() * 24);
-// //       var lowL=capLetters[num];
-// //       passWord= passWord+""+lowL+"";
-// //   }
-// //   passWord=passWord.toLowerCase();
-  
-// // }
-
-// // function genPassWordS(pwLength)
-// // {
-// //   for(var i=0;i<pwLength;i++)
-// //   {
-// //       var num=Math.floor(Math.random() * 28);
-// //       var lowL=specialChar[num];
-// //       passWord= passWord+""+lowL+"";
-// //   }
-// // }
-
-// // console.log(passWord);
-// // // beforeFinal=passWord.split("");
-// // // console.log(beforeFinal);
-// // var middle=pwLength/2;
-
-// // var n1= Math.floor(Math.random() * middle);
-// // var n2= Math.floor(Math.random() * middle);
-// // var n3=Math.floor(Math.random() * middle);
-
-// // var n4 =(pwLength - (n1+n2,n3));
-// // console.log (n1+" "+n2+" "+n3+" "+n4);
-
+return passWord;
+}
 
 function updateCombination(isRequired, index, listOfChars)
 {
@@ -194,17 +135,13 @@ function updateCombination(isRequired, index, listOfChars)
 }
 
 
-// //given-------------------------------------------------
-// // var generateBtn = document.querySelector('#generate');
-// //----------------------------------------------------
-
 // // Write password to the #password input given
-// // function writePassword() {
-// //   var password = generatePassword();
-// //   var passwordText = document.querySelector('#password');
+function writePassword() {
+var password = generatePassword();
+var passwordText = document.querySelector('#password');
 
-// //   passwordText.value = password;
-// // }
+passwordText.value = password;
+}
 
 // // Add event listener to generate button
-// // generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', writePassword);
