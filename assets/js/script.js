@@ -1,21 +1,14 @@
-// Declaration of variable and arrays
-var pwLength=0; //Length of the password
-var passWord=""; //Initial password
-/*Boolean variables stating if the user needs any type of letters, 
-numbers or special characters */
-var incUpperCase; var incLowerCase; var incNumbers; var incSpecialChar;
+var pwLength=0; /*Length of the password*/ var passWord=""; //Initial password
+var incUpperCase; var incLowerCase; var incNumbers; var incSpecialChar; //Boolean variable for password combination
 var pwCombination = [0,0,0,0]; //numbers,uppercase,lowercase,special characters
 var numberList=["0","1","2","3","4","5","6","7","8","9"];
-var capLetters=["A","B","C","D","E","F","G","H","I","J","K","L",
-                "M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var smallLetters=["a","b","c","d","e","f","g","h","i","j","k","l",
-                "m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var specialChar=["!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","=",
-                  ">","?","@","[","]","^","_","`","{","|","}","`"];
+var capLetters=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var smallLetters=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var specialChar=["!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","`"];
 var listOfChars; 
 var pwArrayIndex=0;
 
-var remCharacters=0;
+var count=0;
 var pwArray= [];
 var outerA;
 var innerA;
@@ -46,53 +39,23 @@ function generatePassword()
         getUserInput();
     }
 
-    // Generate a password combination and a multidimesional array based of user input
-    // Refer to the function for more details
+    /* Generate a password combination and a multidimesional array based of user input
+       Refer to the function for more details */
     updateCombination(incNumbers,0,numberList);
     updateCombination(incUpperCase,1,capLetters);
     updateCombination(incLowerCase,2,smallLetters);
     updateCombination(incSpecialChar,3,specialChar);
 
-if(pwCombination[0]==1){
-var num=Math.floor(Math.random() * 10);
-passWord= passWord+""+num+"";
-remCharacters=remCharacters+1;
-// pwletter[k]
-}
+    // Generate one character from each category according to the given user input
+    generateFirstChars(0,numberList);
+    generateFirstChars(1,capLetters);
+    generateFirstChars(2,smallLetters);
+    generateFirstChars(3,specialChar);
 
-if(pwCombination[1]==1){
-var num=Math.floor(Math.random() * 26);
-var capL=capLetters[num];
-passWord= passWord+""+capL+"";
-remCharacters=remCharacters+1;
-}
+    // Generate
+    generateRemChars();
 
-if(pwCombination[2]==1){
-var num=Math.floor(Math.random() * 26);
-var capS=capLetters[num].toLowerCase();
-passWord= passWord+""+capS+"";
-remCharacters=remCharacters+1;
-}
-
-if(pwCombination[3]==1){
-var num=Math.floor(Math.random() * 28);
-var S=specialChar[num];
-passWord= passWord+""+S+"";
-remCharacters=remCharacters+1;
-}
-
-var actualRemain=pwLength-remCharacters;
-var innerK, outerK;
- 
-j=0;
-for(i=0;i<actualRemain;i++)
-{
-  innerK=Math.floor(Math.random() * pwArray.length);
-  var lengthsub=pwArray[innerK];
-  outerK=Math.floor(Math.random() * lengthsub.length);
-  passWord=passWord+(pwArray[innerK][outerK]); 
-}
-return passWord;
+  return passWord;
 }
 
 // This function is used to get the user input for password
@@ -109,10 +72,41 @@ function getUserInput()
           According to above the pwArray is [[0,capLetters],[1,specialChar]] */
 function updateCombination(isRequired, index, listOfChars)
 {
-  if(isRequired){
+  if(isRequired)
+  {
     pwCombination[index]=1;
     pwArray[pwArrayIndex]=listOfChars;
     pwArrayIndex++;
+  }
+}
+
+/*This function is used to randomlygenerate the first character from each category given by the user and it will
+ make sure the password include at least one character from each category that user entered.*/
+function generateFirstChars(aIndex,refArray)
+{
+  if(pwCombination[aIndex]==1)
+  {
+    var index=Math.floor(Math.random() * refArray.length);
+    var firstChar=refArray[index];
+    passWord= passWord+""+firstChar+"";
+    count=count+1; 
+  }
+}
+
+/*This function is used to randomly generate the remaining characters for the password after generating first characters
+  according to the user input */
+function generateRemChars()
+{
+  var remCharacters=pwLength-count; //actual number of times the for loop would run
+  var rIndex1, rIndex2, randomArray;
+ 
+  for(i=0;i<remCharacters;i++)
+  {
+    rIndex1=Math.floor(Math.random() * pwArray.length); //Pickup any array randomly according to the user input
+    randomArray=pwArray[rIndex1];
+    rIndex2= Math.floor(Math.random() * randomArray.length); //Pickup random index for the randomly selected above array
+      
+    passWord=passWord+(pwArray[rIndex1][rIndex2]); 
   }
 }
 
