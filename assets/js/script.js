@@ -36,13 +36,35 @@ while(pwLength<8 || pwLength>128)
 }
 
 incNumbers = window.confirm("Do you need numbers in your password?");
-updateCombination(incNumbers,0,numberList);
+window.alert(incNumbers);
 incUpperCase = window.confirm("Do you need uppercase letters in your password?");
-updateCombination(incUpperCase,1,capLetters);
+window.alert(incUpperCase);
 incLowerCase = window.confirm("Do you need lowercase letters in your password?");
-updateCombination(incLowerCase,2,smallLetters);
+window.alert(incLowerCase);
 incSpecialChar = window.confirm("Do you need special characters in your password?");
+window.alert(incSpecialChar);
+
+
+var checkcombo;
+
+while(!(incLowerCase || incUpperCase || incNumbers || incSpecialChar))
+{
+  window.alert("You need to select at lease one from numbers\n uppercase, lowercase and special characters.")
+  incNumbers = window.confirm("Do you need numbers in your password?");
+  // updateCombination(incNumbers,0,numberList);
+  incUpperCase = window.confirm("Do you need uppercase letters in your password?");
+  // updateCombination(incUpperCase,1,capLetters);
+  incLowerCase = window.confirm("Do you need lowercase letters in your password?");
+  // updateCombination(incLowerCase,2,smallLetters);
+  incSpecialChar = window.confirm("Do you need special characters in your password?");
+}
+
+updateCombination(incNumbers,0,numberList);
+updateCombination(incUpperCase,1,capLetters);
+updateCombination(incLowerCase,2,smallLetters);
 updateCombination(incSpecialChar,3,specialChar);
+
+
 
 
 
@@ -79,9 +101,9 @@ remCharacters=remCharacters+1;
 var actualRemain=pwLength-remCharacters;
 var innerK, outerK;
  
-console.log(passWord);
-console.log("Remaining characters :"+(pwLength-remCharacters));
-console.log(multicombination);
+// console.log(passWord);
+// console.log("Remaining characters :"+(pwLength-remCharacters));
+// console.log(multicombination);
 
 // console.log("number array length: "+numberList.length);
 
@@ -91,9 +113,9 @@ for(i=0;i<actualRemain;i++)
   innerK=Math.floor(Math.random() * multicombination.length);
   var lengthsub=multicombination[innerK];
   outerK=Math.floor(Math.random() * lengthsub.length);
-  console.log(multicombination[innerK][outerK]);
+  passWord=passWord+(multicombination[innerK][outerK]);
   // console.log(multicombination.length);
-  // console.log(lengthsub);
+  console.log(passWord);
   // outerK=math.floor(multicombination)
   
 }
