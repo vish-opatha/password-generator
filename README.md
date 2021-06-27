@@ -9,7 +9,16 @@ Refer to the following links:
 * [Password Generator - Github repository](https://github.com/vish-opatha/password-generator)
 
 ## Mock-up
-The following images show the appearance of the webpage.
+The following video clip shows how password generator works.
+![Password Generator - Video.](.assets/videos/mockup.mp4)
+---
+ Highlights :
+  1. Get password length
+  2. Validate password length
+  3. Get password combination or categories
+  4. Validate if the user has selected at least one category out of four(numbers,uppercase,lowercase and special characters)
+  5. Generate password (Algorithm is designed in a way that it generates first few letters to satisfy the user combination after that draws random characters from the user selected categories)
+    ex : If the user selects numbers, uppercase and special with a password lenght of 10, first 3 characters will be any number, any uppercase, any special character and other seven letters can be eighter numbers, uppercase or special characters randomly drawn out.
 
 
 ## Technical Acceptance - Work Done
