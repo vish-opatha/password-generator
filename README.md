@@ -11,9 +11,6 @@ Refer to the following links:
 ## Mock-up
 The following images show the appearance of the webpage.
 
-Desktop View
-
-Responsive View
 
 ## Technical Acceptance - Work Done
 1. Javascript password generation function is attached to the "Generate password" button and it puts forward series of    prompts to get the user inputs.
@@ -23,7 +20,9 @@ Responsive View
 5. The criteria is validated before the function generates the password, to make sure that at least one character type is selected by user. If user did not select any category, the prompts will be repeated until one character category is selected out of four.
 6. Depending upon the password criteria, in the first stage, one character from each category is generated randomly to make sure the password meets the criteria of the user. In the second stage, randomly characters are drawn from random arrays in the given criteria.
 7. Once after the password is generated, it is displayed on the HTML.
+8. There are no errors logged on the console after the password is displayed.
 8. Several amendments are done in the CSS file to make sure that the user interface is responsive.
+9. Additionally, I have added a favicon icon to this page.
 
 ## Deployment - Work Done
 1. Application is deployed at live URL using Github pages, and the link is in the "Important links" section.
@@ -37,7 +36,7 @@ Responsive View
 
 ## Repository Quality - Work Done
 1. Repository is named as password-generator.
-2. Regarding the folder structure, "Assets" includes separate folders for CSS and Javascript. 
+2. Regarding the folder structure, "Assets" includes separate folders for CSS,Javascript and icons. 
 4. Tags are indented accordingly and comments are included while following the best practices for naming conventions.
 5. Changes were committed multiple times with messages.
 
