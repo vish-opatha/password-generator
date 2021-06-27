@@ -7,7 +7,7 @@ This is a project carried out to create a password according to the combination 
 Refer to the following links:
 * [Password Generator - Deployed page](https://vish-opatha.github.io/password-generator/)
 * [Password Generator - Github repository](https://github.com/vish-opatha/password-generator)
-* [Password Generator - Algorithm](https://drive.google.com/drive/folders/1s1zJBWnHb1C6Cvk71Z2Onj6R79QOtXYv)
+* [Password Generator - Algorithm](https://drive.google.com/file/d/12A87tQAQPakxret01NTRLc_7MvMoLOg5/view?usp=sharing)
 
 ## Mock-up
 The following video clip shows how password generator works.
