@@ -17,7 +17,7 @@ The following video clip shows how password generator works.
   2. Validate password length
   3. Get password combination or categories
   4. Validate if the user has selected at least one category out of four(numbers,uppercase,lowercase and special characters)
-  5. Generate password (Algorithm is designed in a way that it generates first few letters to satisfy the user combination after that draws random characters from the user selected categories)
+  5. Generate password (Algorithm is designed in a way that it generates first few letters to satisfy the user combination, and after that draws random characters from the user selected categories)
     ex : If the user selects numbers, uppercase and special with a password lenght of 10, first 3 characters will be any number, any uppercase, any special character and other seven letters can be eighter numbers, uppercase or special characters randomly drawn out.
 
 
