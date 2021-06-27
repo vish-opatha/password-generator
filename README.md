@@ -10,7 +10,7 @@ Refer to the following links:
 
 ## Mock-up
 The following video clip shows how password generator works.
-![Password Generator - Video.](assets/videos/mockup.mp4)
+![Password Generator - Video.](https://drive.google.com/file/d/1-rQv__1jcVZo4LBHna2wKM3y0kYfvDV7/view)
 ---
  Highlights :
   1. Get password length
