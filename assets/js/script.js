@@ -41,10 +41,10 @@ function generatePassword()
     updateCombination(incSpecialChar,3,specialChar);
 
     // Generate one character from each category to satisfy the user input - validation 
-    generateFirstChars(0,numberList); console.log(passWord);
-    generateFirstChars(1,capLetters); console.log(passWord);
-    generateFirstChars(2,smallLetters); console.log(passWord);
-    generateFirstChars(3,specialChar); console.log(passWord);
+    generateFirstChars(0,numberList); 
+    generateFirstChars(1,capLetters); 
+    generateFirstChars(2,smallLetters); 
+    generateFirstChars(3,specialChar); 
 
     // Generate the remaining number of characters randomly from random arrays
     var remCharacters=pwLength-count; //actual number of times the below for loop would run

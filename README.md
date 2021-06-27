@@ -1,92 +1,45 @@
-# 03 JavaScript: Password Generator
+# Password Generator using javascript
 
-## Your Task
+## Overview
+This is a project carried out to create a password according to the combination requested by the user. The password generation is done by using javascript and this web page is dynamically updated in HTML. With regards to the styles, CSS has been used.
 
-This week’s homework requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
+## Important Links
+Refer to the following links:
+* [Password Generator - Deployed page](https://vish-opatha.github.io/password-generator/)
+* [Password Generator - Github repository](https://github.com/vish-opatha/password-generator)
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
+## Mock-up
+The following images show the appearance of the webpage.
 
-## User Story
+Desktop View
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+Responsive View
 
-## Acceptance Criteria
+## Technical Acceptance - Work Done
+1. Javascript password generation function is attached to the "Generate password" button and it puts forward series of    prompts to get the user inputs.
+2. First prompt is used the get the required lenght of the password.
+3. The length of password is validated to make sure that it is between 8 to 128. Otherwise the function will not put forward other prompts. 
+4. Once after the user enters the correct password length, then other prompts to get the confirmation for password criteria will appear one by one (numbers, uppercase, lowercase and special character)
+5. The criteria is validated before the function generates the password, to make sure that at least one character type is selected by user. If user did not select any category, the prompts will be repeated until one character category is selected out of four.
+6. Depending upon the password criteria, in the first stage, one character from each category is generated randomly to make sure the password meets the criteria of the user. In the second stage, randomly characters are drawn from random arrays in the given criteria.
+7. Once after the password is generated, it is displayed on the HTML.
+8. Several amendments are done in the CSS file to make sure that the user interface is responsive.
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
-https://vish-opatha.github.io/password-generator/
-## Mock-Up
+## Deployment - Work Done
+1. Application is deployed at live URL using Github pages, and the link is in the "Important links" section.
+2. No errors were found in loading and executing the function.
+3. Link to the Github URL is given and the repository and it contains the whole code.
 
-The following image shows the web application's appearance and functionality:
+## Application Quality - Work Done
+1. Deployed page resembles the mock-up in design and functionality.
+2. Prompts and alerts are put forward accordingly, so that user can navigate easily and it improves user experince.
+3. CSS file has been amended to improve the responsive nature of the application.
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
-
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+## Repository Quality - Work Done
+1. Repository is named as password-generator.
+2. Regarding the folder structure, "Assets" includes separate folders for CSS and Javascript. 
+4. Tags are indented accordingly and comments are included while following the best practices for naming conventions.
+5. Changes were committed multiple times with messages.
 
 - - -
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+Created by Vish Opatha (Last updated on 27 June 2021).
