@@ -51,4 +51,4 @@ The following video clip shows how password generator works.
 5. Changes were committed multiple times with messages.
 
 - - -
-Created by Vish Opatha (Last updated on 27 June 2021).
+Created by Vish Opatha (Last updated on 25 May 2023).
