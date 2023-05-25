@@ -98,7 +98,7 @@ function displayPassword()
 {
     let password = generatepassword();
     let passwordText = document.querySelector('#password');
-    passwordText.value = password;
+    passwordText.textContent = password;
 }
 
 // Add event listener to generate button
