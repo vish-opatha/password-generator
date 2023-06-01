@@ -24,11 +24,20 @@ function getPasswordLength() {
   passwordLength = 0;
   passwordLength = window.prompt('Please enter the desired length of your password?');
 
-  if(passwordLength < 8 || passwordLength > 128 ) {
+  if(passwordLength === null) return;
+
+  if(passwordLength < 8 || passwordLength > 128) {
       window.alert('Enter a number between 8 to 128!');
       getPasswordLength();
       return;
   }
+
+  if(!Number(passwordLength)){
+    window.alert('Characters/symbols cannot be a length for a password!');
+    getPasswordLength();
+    return;
+  }
+
 }
 
 /**
@@ -126,9 +135,12 @@ function generatepassword() {
 function displayPassword() 
 {
     getPasswordLength();
+
+    if(passwordLength === null) return;
+
     getPasswordCombination();
     password = generatepassword();
-    passwordText.textContent = password;
+    passwordText.textContent = password;  
 }
 
 /**
