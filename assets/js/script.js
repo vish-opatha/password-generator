@@ -13,6 +13,8 @@ let listOfChars; // This changes to numberList/capLetters/smallLetters/specialCh
 let pwArray = []; // This is an array comprises of other arrays from above, based on user input
 let count; // This counts the number of times if statement in generateFirstChars fn runs
 let generatePasswordBtn = document.querySelector('#generate');
+let reGeneratePasswordBtn = document.querySelector('#re-generate');
+let passwordText = document.querySelector('#password');
 
 function getPasswordLength() {
   passwordLength = 0;
@@ -26,6 +28,10 @@ function getPasswordLength() {
 }
 
 function getPasswordCombination() {
+  pwCombination = [0,0,0,0];
+  pwArrayIndex = 0;
+  pwArray = [];
+  
   isNumbersRequired = window.confirm('Do you need numbers in your password?');
   isUpperCaseRequired = window.confirm('Do you need uppercase letters in your password?');
   isLowerCaseRequired = window.confirm('Do you need lowercase letters in your password?');
@@ -34,7 +40,13 @@ function getPasswordCombination() {
   if(!(isLowerCaseRequired || isUpperCaseRequired || isNumbersRequired || isSpecialCharRequired)) {
       window.alert('You need to select at lease one from numbers\n uppercase, lowercase and special characters.');
       getPasswordCombination();
+      return;
   }
+
+  generatePasswordCombination(isNumbersRequired,0,numberList);
+  generatePasswordCombination(isUpperCaseRequired,1,capLetters);
+  generatePasswordCombination(isLowerCaseRequired,2,smallLetters);
+  generatePasswordCombination(isSpecialCharRequired,3,specialChar);
 }
 
 /*  This function is used to generate a password combination and an array of arrays relating to that combination.
@@ -64,9 +76,17 @@ function generateFirstChars(aIndex,refArray) {
 
 // Main function to generate the password, this has multiple functions inside
 function generatepassword() {
-  const remainingCharacters = passwordLength - count; //actual number of times the below for loop would run
+  count = 0;
   let rIndex1, rIndex2, randomArray;
+  password = '';
 
+  generateFirstChars(0,numberList); 
+  generateFirstChars(1,capLetters); 
+  generateFirstChars(2,smallLetters); 
+  generateFirstChars(3,specialChar);
+
+  const remainingCharacters = passwordLength - count; //actual number of times the below for loop would run
+  
   // Generate the remaining number of characters randomly from random arrays 
   for(i = 0; i < remainingCharacters; i++) {
     rIndex1 = Math.floor(Math.random() * pwArray.length); //Pickup any array randomly according to the user input
@@ -84,25 +104,17 @@ function displayPassword()
     let passwordText = document.querySelector('#password');
     getPasswordLength();
     getPasswordCombination();
-    password = '';
-    pwCombination = [0,0,0,0];
-    pwArrayIndex = 0;
-    pwArray = [];
-    count = 0; 
+    
+    password = generatepassword();
+    passwordText.textContent = password;
+}
 
-    generatePasswordCombination(isNumbersRequired,0,numberList);
-    generatePasswordCombination(isUpperCaseRequired,1,capLetters);
-    generatePasswordCombination(isLowerCaseRequired,2,smallLetters);
-    generatePasswordCombination(isSpecialCharRequired,3,specialChar);
-
-    generateFirstChars(0,numberList); 
-    generateFirstChars(1,capLetters); 
-    generateFirstChars(2,smallLetters); 
-    generateFirstChars(3,specialChar);
-
+function regeneratePassword(){
+    let passwordText = document.querySelector('#password');
     password = generatepassword();
     passwordText.textContent = password;
 }
 
 // Add event listener to generate button
 generatePasswordBtn.addEventListener('click', displayPassword);
+reGeneratePasswordBtn.addEventListener('click', regeneratePassword);
