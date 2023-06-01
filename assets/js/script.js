@@ -37,7 +37,6 @@ function getPasswordLength() {
     getPasswordLength();
     return;
   }
-
 }
 
 /**
