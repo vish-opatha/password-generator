@@ -1,0 +1,15 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "App to generate random password",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
